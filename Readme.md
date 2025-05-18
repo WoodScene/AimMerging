@@ -1,4 +1,4 @@
-# AIMMerging: Leveraging Training Trajectories for Adaptive Iterative Model Merging in Language Model Continual Learning
+# AIMMerging
 Thank you for your interest in our work! This repository contains the original implementation of "AIMMerging: Leveraging Training Trajectories for Adaptive Iterative Model Merging in Language Model Continual Learning".
 
 Reproducing the results from our paper is straightforward—just follow the steps outlined below.
