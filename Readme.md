@@ -43,7 +43,7 @@ Notes:
 * Use the `model_path` argument to specify the location of your downloaded models.
 * We use [LoRA](https://github.com/microsoft/LoRA) for efficient parameter-efficient fine-tuning.
 * Fine-tuned model weights will be saved to `$checkpoint_files`.
-* The evolution of the learning signal, forgetting signal, and the decisions made by the merge controller are saved in the `./Fig` folder for easy visualization.
+* **All the visualized results presented in our paper (Section "Visualization") will be saved in the `./Fig` folder for easy access.**
 * The prediction results will be stored in the `$output` folder.
 
 
