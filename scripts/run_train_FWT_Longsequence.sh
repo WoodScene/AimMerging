@@ -5,8 +5,6 @@
 # 设置起始变量
 begin_id=0
 
-# 最后一个task 需要调小bs，从64\16 to 32\8 
-
 for data_id in 1
 do
     # 循环从 begin_id 到 15
@@ -15,7 +13,7 @@ do
         # 执行 Python 文件，传递参数 $i
 
         CUDA_VISIBLE_DEVICES=7 python finetune_FWT_t5lora.py \
-            --base_model '/group/40059/yuujiefeng/Backbones/t5large' \
+            --base_model 'your_model_path' \
             --num_epochs=10 \
             --dataset_id=${data_id} \
             --task_id=${ORDER} \
@@ -34,7 +32,7 @@ do
     do
         # 执行 Python 文件，传递参数 $i
         CUDA_VISIBLE_DEVICES=0 python generate_fwt_t5lora.py \
-            --base_model '/group/40059/yuujiefeng/Backbones/t5large' \
+            --base_model '/your_model_path' \
             --dataset_id=${data_id} \
             --service_begin_id=${ORDER} \
 

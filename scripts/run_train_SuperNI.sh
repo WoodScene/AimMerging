@@ -31,7 +31,7 @@ do
 
 
     CUDA_VISIBLE_DEVICES=$CUDA_DEVICE python finetune_ours_t5lora.py \
-        --base_model '/group/40059/yuujiefeng/Backbones/t5large' \
+        --base_model '/your_model_path' \
         --data_dir './data_superni' \
         --method_name "${method_name}" \
         --num_epochs=10 \
@@ -57,7 +57,7 @@ wait
 
 
 CUDA_VISIBLE_DEVICES=$CUDA_DEVICE python generate_avgPerf_t5lora.py \
-    --base_model '/group/40059/yuujiefeng/Backbones/t5large' \
+    --base_model '/your_model_path' \
     --dataset_id=${data_id} \
     --data_dir './data_superni' \
     --method_name "${method_name}" \
@@ -71,7 +71,7 @@ for ((ORDER=$begin_id; ORDER<15; ORDER++))
 do
     # 执行 Python 文件，传递参数 $i
     CUDA_VISIBLE_DEVICES=$CUDA_DEVICE python generate_bwt_t5lora.py \
-        --base_model '/group/40059/yuujiefeng/Backbones/t5large' \
+        --base_model '/your_model_path' \
         --data_dir './data_superni' \
         --dataset_id=${data_id} \
         --service_begin_id=${ORDER} \

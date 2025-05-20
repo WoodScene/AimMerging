@@ -23,33 +23,33 @@ The Trainer class, to easily train a 🤗 Transformers from scratch or finetune 
 
 
 # 主要需改了train函数
-# feng:
+
 # update 1: add a new function "get_memory_dataloader"
 # update 2: 新增3个变量，train_dataset_memory 和 _train_batch_size_outer 、 inner_iterations
 # update 3: 为外层循环新建一个优化器和学习率调度器，基于另一个新的变量：outer_lr (记得加个判断条件，要不报错了) 和create_outer_optimizer_and_scheduler函数
 # 主要修改了train函数中的_inner_training_loop函数
 
 
-# new： 2025.5.7 
+# new： 2025.4.7 
 # 新增一个inner_iterations_scaling_factor变量来对self._inner_iterations进行缩放。如果inner_iterations_scaling_factor大于1，说明融合的间隔越来越长；
 # 如果inner_iterations_scaling_factor小于1，说明融合的间隔越来越短
 # 用dynamic_outer_iterations_flag来控制外层迭代次数是否随着内层变化
 
 
-# update: 2025.05.09
+# update: 2025.04.09
 # 目前在实现动态步长的情况下，内层迭代次数会有问题，不能用self.state.global_step % self._inner_iterations == 0作为判断的依据，这样在动态的情况下，无法保证每一次的间隔都是self._inner_iterations；
 # 新增一个变量，self._outer_begin = self._outer_begin + self._inner_iterations,表示该进行外层循环了，self._inner_iterations只表示间隔，从而在self.state.global_step == self._outer_begin
 
 
-# update 2025.05.09
+# update 2025.04.09
 # 根据delta in 的变化情况自适应调整融合间隔
 
 
-# update 2025.05.12
+# update 2025.04.12
 # 同时考虑delta in的变化量以及历史知识的loss变化情况来决定是否融合
 # 总的来说就是delta in 来控制融合的步长，等达到步长之后，是否执行融合需要用history loss的信号来判断
 
-# update 2025.05.12
+# update 2025.04.12
 # 同时调整融合的策略，基于loss的变化以及delta in的变化情况来设置融合的权重，global merge
 # 重写了update_parameters_with_task_vectors函数， update_parameters_with_task_vectors_version2
 

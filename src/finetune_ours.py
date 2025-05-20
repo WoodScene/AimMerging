@@ -59,7 +59,7 @@ def train(
     base_model: str = "",  # the only required argument
     data_dir: str = "./data_longsequence",
     output_path: str = "./checkpoint_files",
-    cache_dir: str = "/group/40059/yuujiefeng/cache",
+    cache_dir: str = "/",
     # training hyperparams
     batch_size: int = 8, # 16
     micro_batch_size: int = 2, # 4

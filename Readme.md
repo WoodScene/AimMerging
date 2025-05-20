@@ -34,7 +34,7 @@ Download the required backbone models from Hugging Face:
 
 
 ## Step 2. Training and Inference
-To fine-tune the models, run the following command. This will also generate three metrics: Overall Performance (OP), Forward Transfer (FWT), and Backward Transfer (BWT).
+To fine-tune the models, run the following command. This will also generate predictions for three metrics: Overall Performance (OP), Forward Transfer (FWT), and Backward Transfer (BWT).
 ```ruby
 ./scripts/run_train_ours.sh
 ```
